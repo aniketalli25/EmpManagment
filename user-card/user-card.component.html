@@ -1,0 +1,17 @@
+<!-- user-card.component.html -->
+<div class="row">
+  <div class="col-md-12  px-3">
+    <div class="user-card card shadow-lg bg-body rounded" style="border: 1px solid rgba(6, 6, 28, 0.758);">
+      <div class="card-body">
+        <img [src]="user.avatar" alt="User Avatar">
+      <h2>{{ user.first_name }} {{ user.last_name }}</h2>
+      <p>Email: {{ user.email }}</p>
+      <p>Gender: {{ user.gender }}</p>
+      <p>Domain: {{ user.domain }}</p>
+      <p>Available: {{ user.available ? 'Yes' : 'No' }}</p>
+      </div>
+
+    </div>
+  </div>
+</div>
+

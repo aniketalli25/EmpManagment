@@ -1,0 +1,15 @@
+.user-card {
+
+  img{
+    width: 70px;
+  }
+  h2{
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 400;
+    font-size: 25px;
+  }
+  p{
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    margin: 1px;
+  }
+}

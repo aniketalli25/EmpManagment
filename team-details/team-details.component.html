@@ -1,0 +1,11 @@
+<div *ngIf="teamMembers.length > 0">
+  <h3>Team Details</h3>
+  <ul>
+    <li *ngFor="let member of teamMembers">
+      {{ member.first_name }} {{ member.last_name }} - {{ member.domain }} - Availability: {{ member.available ? 'Yes' : 'No' }}
+    </li>
+  </ul>
+</div>
+<div *ngIf="teamMembers.length === 0">
+  <p>No team members selected.</p>
+</div>

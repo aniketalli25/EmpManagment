@@ -1,0 +1,62 @@
+<div class="container-fluid">
+  <div class="row mt-2">
+    <div class="col-md-12">
+      <input type="text" class="form-control" placeholder="Search" (keyup)="search()" [(ngModel)]="searchTerm">
+    </div>
+   <!-- Filter dropdowns -->
+   <div class="row d-flex justify-content-center">
+    <div class="col-md-3">
+      <div class="form-group">
+        <label for="domainFilter">Domain:</label>
+        <select id="domainFilter" class="form-control"  [(ngModel)]="selectedDomains">
+          <option *ngFor="let domain of getUniqueDomains()" [value]="domain">{{ domain }}</option>
+        </select>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="form-group">
+        <label for="genderFilter">Gender:</label>
+        <select id="genderFilter" class="form-control"  [(ngModel)]="selectedGenders">
+          <option *ngFor="let gender of getUniqueGenders()" [value]="gender">{{ gender }}</option>
+        </select>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="form-group">
+        <label for="availabilityFilter">Availability:</label>
+        <select id="availabilityFilter" class="form-control"  [(ngModel)]="selectedAvailability">
+          <option *ngFor="let available of getUniqueAvailabilities()" [value]="available">{{ available }}</option>
+        </select>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <button class="btn btn-primary btn-sm mt-4" (click)="applyFilters()">Apply Filters</button>
+      <button class="btn btn-primary btn-sm float-end mt-4" (click)="createTeam()" [disabled]="selectedUsers.length === 0">Create Team</button>
+
+
+    </div>
+
+
+   </div>
+
+    <div class="col-md-12 mt-2">
+      <div class="user-cards card">
+        <div class="row">
+
+          <div class="col-md-4 col-12  p-3" *ngFor="let user of filteredUsers | paginate: { itemsPerPage: itemsPerPage, currentPage: currentPage, totalItems: filteredUsers.length }">
+            <input type="checkbox" [checked]="isUserSelected(user)" (change)="toggleUserSelection(user)">
+            <app-user-card [user]="user"></app-user-card>
+
+          </div>
+        </div>
+        <pagination-controls  (pageChange)="onPageChange($event)" class="pagination" previousLabel="Previous" nextLabel="Next"></pagination-controls>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
